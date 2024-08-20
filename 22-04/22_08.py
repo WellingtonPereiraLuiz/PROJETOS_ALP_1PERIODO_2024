@@ -1,11 +1,11 @@
 """
-Wellington Pereia Luiz
-exercicios2204.py - UTF8 - PT-BR
-Data:18-08-2024
+Wellington Pereia Luiz  - pt-br - utf-8 - 20-04-2024
+22_08.py
 """
 
 
-"""
+from tkinter import *
+import tkinter.font as tkfont
 
 def resize_font(event):
     new_size = max(10, int(frame.winfo_height() * 0.05))
@@ -36,9 +36,7 @@ frame = LabelFrame(app, text='Cadastro', borderwidth=1, relief='solid', backgrou
 frame.grid(row=0, column=0, sticky='NSEW', padx=3, pady=3)
 frame.bind('<Configure>', resize_font)
 
-
-
-font = tkFont.Font(size=10,)
+font = tkfont.Font(size=10)
 
 label = Label(frame, text='Digite um nome:', font=font, background='white')
 label.grid(row=0, column=0, sticky='W', padx=(3, 20))
@@ -80,7 +78,7 @@ frame.grid_columnconfigure(1, weight=1)
 app.minsize(width=800, height=480)
 app.mainloop()
 
-"""
+
 
 """
 from tkinter import *
@@ -104,7 +102,7 @@ lb_2 = Label(frame, text= 'Dig')
 
 app.mainloop()
 """
-
+"""
 from tkinter import *
 
 def capturar():
@@ -115,21 +113,29 @@ app.title('Analise e Desenvolvimento de Sistemas')
 app.geometry('1360x680')
 app.configure(background='#F8F8FF')
 app.resizable(True, True)
-app.minsize(width=1360, height=670)
-app.maxsize(width=1360, height=670)
+app.minsize(width=1280, height=670)
+app.maxsize(width=1280, height=670)
 
 frame = LabelFrame(app, text="Cadastro", borderwidth=1, relief='solid')
-frame.place(x=10, y=10, width=70, height=20)
+frame.place(x=10, y=10, width=850, height=275)
 
 Ib_1 = Label(frame, text='contatos: ', fg='red', font=("Arial", 14, "bold italic"))
-Ib_1.place(x=15, y=10, width=70, height=20)
+Ib_1.place(x=20, y=10, width=95, height=25)
 
 Ib_2 = Label(frame, text='Digite um nome: ', font=("Arial", 14))
-Ib_2.place(x=20, y=35, width=120, height=20)
+Ib_2.place(x=20, y=35, width=145, height=20)
 
 nome = Entry(frame, font=('Arial', 14))
-nome.place(x=135, y=35, width=400, height=20)
+nome.place(x=160, y=35, width=300, height=20)
 
 nome.focus_set()
 
-Ib_3 = Label(app, text='', font=("Arial"))
+Ib_3 = Label(app, text='', font=("Arial", 14), background='#F8F8FF')
+Ib_3.place(x=135, y=370, width=250, height=20)
+
+btn_captura = Button(app, text = 'Capturara dados', font=("Arial", 14, "bold"), command= capturar)
+btn_captura.place(x=490, y=300, width=200, height=40)
+
+app.mainloop()
+
+"""
