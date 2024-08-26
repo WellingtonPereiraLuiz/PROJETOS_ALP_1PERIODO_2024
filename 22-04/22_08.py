@@ -32,6 +32,7 @@ app.grid_rowconfigure(0, weight=4)
 app.grid_rowconfigure(1, weight=6)
 app.grid_columnconfigure(0, weight=1)
 
+
 frame = LabelFrame(app, text='Cadastro', borderwidth=1, relief='solid', background='white')
 frame.grid(row=0, column=0, sticky='NSEW', padx=3, pady=3)
 frame.bind('<Configure>', resize_font)
@@ -40,8 +41,6 @@ font = tkfont.Font(size=10)
 
 label = Label(frame, text='Digite um nome:', font=font, background='white')
 label.grid(row=0, column=0, sticky='W', padx=(3, 20))
-
-
 
 
 entry = Entry(frame, font=font)
@@ -65,7 +64,7 @@ additional_entries = []
 
 
 for i in range(4):
-    new_label = Label(frame, text=f'Campo {i*2 + 1}:', font=font, background='white')
+    new_label = Label(frame, text=f'Campo {i + 1}:', font=font, background='white')
     new_label.grid(row=3 + i, column=0, sticky='W', padx=(3, 20))
 
     new_entry = Entry(frame, font=font)
