@@ -84,7 +84,7 @@ print(f'\nDados do conjunto: {conjunto}')
 
 print(f'\nTipo de dados do conjunto: {type(conjunto)}')
 
-"""
+
 
 #Convertendo uma lista em conjunto - set()
 lista = [1,2,3,4,'Analise',4,3,2,1,False,'Analise',False]
@@ -97,5 +97,34 @@ conjunto = set(lista)
 print(f'\nDados do conjunto: {conjunto}')
 print(f'\nTipo de dados do conjunto: {type(conjunto)}')
 print(f'\nTotal de elementos conjunto: {len(conjunto)}')
+
+
+#Convertendo uma tupla em um conjunto - set()
+tupla = (2,3,'Desenvolvimejnto',3,3,True,'Desenvolvimento',True,1.15,1.15)
+print(f'\nDados da tulpla:{tupla}')
+print(f'\nTipo de dados da tupla: {type(tupla)}')
+
+conjunto = set(tupla)
+
+print(f'\nDados do conjunto: {conjunto}')
+print(f'\nTipo de dados do conjunto: {type(conjunto)}')
+print(f'\nTotal de elementos conjunto: {len(conjunto)}')
+
+
+
+#Verificando se um elemento faz parte de um conjunto - set()
+conjunto = {2,3,'Desenvolvimento',3,2,True,'Desenvolvimento',True,1.15,1.15}
+
+if 1.15 in conjunto:
+    print(f'\nElemento encontrado no conjunto')
+else:
+    print(f'\nElemento NÃO encontrado no conjunto')
+"""
+
+#Usanso conjunto no dia a dia - set(): EXERCICIO
+
+cidades = ['ariquemes','ariquemes','ariquemes','ariquemes','alto paraiso','cacaulandia','bom futuro',
+           'porto velho','ji-parana','vilhena','cacoal','jaru','buritis','pimenta buieno',
+           'ouro preto do oeste','guajara-mirin','cerejeiras','chupinguaia']
 
 
