@@ -133,7 +133,6 @@ print(f'Nome: {gatos[1]}')
 print(f'Raça: {gatos[2]}')
 print(f'Idade: {gatos[3]}\n')
 
-"""
 
 from collections import deque
 
@@ -145,3 +144,18 @@ deq.appendleft('Campus')
 deq.appendleft('IFRO')
 print(f'\nOs dados aramazenados no deque são: {deq}')
 print(f'\nOs dados do deque foram armazenados no formato: {type(deq)}\n')
+
+
+"""
+
+
+
+
+
+
+
+
+
+
+
+
