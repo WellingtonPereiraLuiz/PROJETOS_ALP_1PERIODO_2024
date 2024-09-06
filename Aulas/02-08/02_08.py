@@ -133,7 +133,6 @@ print(f'Nome: {gatos[1]}')
 print(f'Raça: {gatos[2]}')
 print(f'Idade: {gatos[3]}\n')
 
-
 from collections import deque
 
 deq = deque()
@@ -146,16 +145,96 @@ print(f'\nOs dados aramazenados no deque são: {deq}')
 print(f'\nOs dados do deque foram armazenados no formato: {type(deq)}\n')
 
 
+
+print(f'\nOs dados armazenados =no deque são: {deq}')
+
+print(deq.popleft())
+
+print(f'\nOs dados armazenados no deque apos o popleft() são: {deq}')
+
 """
 
+# CRUD (Create, Reader, Update, Delete) - Python / Tkinter e arquivo
+# JSON (JavaScript Object Notation)
+
+"""
+Wellington Pereira Luiz - UTF8 - pt-br - 02-09-2024
+CRUD (Create, Reader, Update, Delete - com arquivos JSON - JavaScript Object Notation)
+"""
+
+import os
+import json
+import regex as re
+from tkinter import *
+import tkinter as tk
+from tkinter import ttk, messagebox
+
+#Funções - Modo interativo
+
+def valida_campo(campo, tipo_campo):
+    if not campo:
+        messagebox.showwarning('Aviso', f'{tipo_campo} invalido')
+        return False
+    if len(campo) > 50:
+        messagebox.showwarning('Aviso', f'{tipo_campo} muito longo. Deve ter no maximo 50 caracteres')
+        return False
+    
+    pattern = r'^[\p{L}\s]{1,50}$'
+    if not re.match(pattern, campo):
+        messagebox.showwarning('Aviso', f'{tipo_campo} invalido. Não use numeros ou caracteres especiais')
+        return False
+    
+    preposicoes = ['da','de','do','das','dos']
+    campo = ' '.join([parte.capitalize() if parte not in preposicoes else parte for parte in re.sub(r'\s+', ' ', campo).split()])
+    return campo
+
+def grava_dados_arquivo(pessoa):
+    arquivo_json = "cadastro.json"
+    dados = []
+    if os.path.exists(arquivo_json) and os.path.getsize(arquivo_json) > 0:
+        with open(arquivo_json, 'r') as arquivo:
+            dados = json.load(arquivo)
+
+        dados.append(pessoa) 
+        with open(arquivo_json, 'w') as arquivo:
+            json.dump(dados, arquivo, indent=4)
+
+def carregar_dados_arquivo():
+    arquivo_json =  "cadastro.json"
+    if os.path.exists(arquivo_json) and os.path.getsize(arquivo_json) > 0:
+        with open(arquivo_json, 'r') as arquivo:
+            return [(linha['nome'], linha['sobrenome'], linha['genero']) for linha in json.load(arquivo)]
+        return[]
 
 
+#funções Tkinter
+def configurar_app():
+    global mensagem_var
 
+    app.title('Análise e Desenvolvimento de Sistemas')
+    app.geometry('1024x600')
+    app.configure(background='#F8F8FF')
+    app.resizable(True, True)
+    app.maxsize(width=1024, height=600)
 
+    mensagem_var = StringVar()
+    mensagem_label = Label(app, textvariable=mensagem_var, fg='red', font=('Arial',14,'bold'), bg='white')
+    mensagem_label.place(x=100, y=265, width=700, height=20)
 
+def criar_frame():
+    frame = LabelFrame(app, text='Cadastro', borderwidth=1, relief='solid')
+    frame.place(x=10, y=10, width=1000, height=200)
+    return frame
 
+def criar_labels(frame):
+    lb_1 = Label(frame, text='Contatos: ', fg='red', font=('Arial', 14, 'italic', 'bold'))
+    lb_1.place(x=15, y=10, width=70, height=20)
+    lb_nome = Label(frame, text='Digite um nome: ', font=('Arial', 14))
+    lb_nome.place(x=20, y=35, width=120, height=20)
+    lb_sobrenome = Label(frame, text='Digite um sobrenome: ', font=('Arial', 14))
+    lb_sobrenome.place(x=20, y=65, width=180, height=20)
 
-
-
-
+def criar_entry(frame):
+    global nome, sobrenome
+    nome = Entry
 
