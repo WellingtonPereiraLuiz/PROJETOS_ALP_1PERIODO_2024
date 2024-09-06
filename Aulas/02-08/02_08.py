@@ -236,5 +236,21 @@ def criar_labels(frame):
 
 def criar_entry(frame):
     global nome, sobrenome
-    nome = Entry
+    nome = Entry(frame, font=('Arial', 14))
+    nome.place(x=200, y=35, width=400, height=20)
+    sobrenome = Entry(frame, font=('Arial', 14))
+    sobrenome.place(x=200, y=65, width=400, height=20)
+    return nome,sobrenome
 
+def criar_checkbutton(frame):
+    global genero_var
+    genero_var = StringVar()
+    generos = ['Masculino', 'Feminino', 'Outro']
+    y_pos = 95
+    for gen in generos:
+        Radiobutton(frame, text=gen, variable=genero_var, value=gen, font=('Arial', 14)).place(x=200, y=y_pos)
+        y_pos += 30
+    return genero_var
+
+
+def criar_botao():
